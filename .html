@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #667eea;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quote Generator</h1>
+    <div class="quote" id="quote">Click the button to get a quote</div>
+    <div class="author" id="author"></div>
+    <button onclick="newQuote()">New Quote</button>
+</div>
+
+<script>
+    const quotes = [
+        { text: "The best way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+        { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
+        { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
+        { text: "Don’t wait. The time will never be just right.", author: "Napoleon Hill" },
+        { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" }
+    ];
+
+    function newQuote() {
+        const random = Math.floor(Math.random() * quotes.length);
+        document.getElementById("quote").innerText = quotes[random].text;
+        document.getElementById("author").innerText = "- " + quotes[random].author;
+    }
+
+    // Show quote on page load
+    window.onload = newQuote;
+</script>
+
+</body>
+</html>
